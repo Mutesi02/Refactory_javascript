@@ -3,4 +3,4 @@ console.log("Albert Aistene \"wewwwe\" ")
 
 let js = "javascript";
 // js.length
-console.log(js.length)
+console.log(js.length);
