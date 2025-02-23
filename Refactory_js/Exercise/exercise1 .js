@@ -1,3 +1,4 @@
+//Break out session
 // Get the current date and time
 let now = new Date();
 
