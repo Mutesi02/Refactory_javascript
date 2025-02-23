@@ -1,5 +1,5 @@
 // 20th Feb Exercise
-//20th Feb Exercise
+
 
 console.log(4 > 3);       // true
 console.log(4 >= 3);      // true
