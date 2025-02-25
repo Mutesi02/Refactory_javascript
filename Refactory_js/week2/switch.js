@@ -52,5 +52,4 @@ switch (produce) {
     default:
         alert("unknown produce! please enter a valid name");
         break;    
-    
 }
