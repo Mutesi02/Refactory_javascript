@@ -3,7 +3,7 @@ Abel-chocolate
 cain-braed
 Joshua -sweets
 person b doesnot answer phone calls*/
-// let contact = +prompt("Enter your BF contact");//alternatively let contact = parseInt(prompt("Enter your BF contact"));
+// let contact = prompt("Enter your BF contact");
 // switch(contact){
 //     case 1:
 //         alert("chocolate")
