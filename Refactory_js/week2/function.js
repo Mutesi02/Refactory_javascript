@@ -40,3 +40,13 @@ calculateTotalCost("maize", 3000, 50)
 calculateTotalCost("Beans", 5000, 60)
 calculateTotalCost("soybeans", 6000, 20)
 calculateTotalCost("G-nuts", 4000, 70)
+
+
+
+let areaOfTriangle = (base, height) =>{
+    let area = 0.5 * base * height
+    return area
+}
+console.log("The area of a triangle is:" + areaOfTriangle(5,6));
+
+
