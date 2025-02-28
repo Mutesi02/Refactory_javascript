@@ -12,3 +12,9 @@ for(let i=0; i<number.length; i++){
     sum +=number[i];
     console.log(sum);
 }
+
+
+let a = ["boat", "cat", "goat"]
+for (let j=0; j<a.length; j++){
+    console.log(a[j])
+}
