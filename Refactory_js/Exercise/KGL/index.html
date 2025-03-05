@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>KGL Store - Stock Management</title>
+</head>
+<body>
+    <h1>🛒 KGL Store - Stock Management</h1>
+<h2>📦 Current Stock:</h2>
+<ul id="stockList">
+<li>Beans: <span id="beansStock">100</span> kg</li>
+<li>Maize: <span id="maizeStock">200</span> kg</li>
+<li>Cow Peas: <span id="cowPeasStock">150</span> kg</li>
+</ul>
+<h2>📝 Update Stock:</h2>
+<label for="produce">Select Produce:</label>
+<select id="produce">
+<option value="beans">Beans</option>
+<option value="maize">Maize</option>
+<option value="cowPeas">Cow Peas</option>
+</select>
+<input type="number" id="newStock" placeholder="Enter new stock">
+<button onclick="updateStock()">Update Stock</button>
+<script src="script.js"></script>
+</body>
+</html>

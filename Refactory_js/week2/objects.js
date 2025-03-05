@@ -42,5 +42,5 @@ let calculator ={
         return a-b
     }
 }
-console.log(calculator.add(5,4))
-console.log(calculator.subtract(10,5))
+console.log(calculator.add(5,4));
+console.log(calculator.subtract(10,5));
