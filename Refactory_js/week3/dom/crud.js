@@ -1,7 +1,9 @@
 //function to create an element in the dom
 function create(){
-const btn = document.createElement("Button");
-console.log("you have created a file")
+const paragraph = document.createElement("p")
+paragraph.innerHTML = "Button Clicked"
+document.body.appendChild(paragraph)
+// console.log("you have created a file")
 }
 
 //function to read an element in the dom
