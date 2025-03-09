@@ -1,6 +1,6 @@
 # Introduction to JavaScript
 
-<img src="Refactory_js/download.jpegdownload.jpeg" alt="JavaScript Introduction" width="100%" />
+<img src="./Refactory_js/Refactory_js/download.jpegdownload.jpeg" alt="JavaScript Introduction" width="100%" />
 
 JavaScript (JS) is a versatile programming language that runs on the web, used to create interactive websites and web applications.
 
