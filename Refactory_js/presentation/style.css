@@ -1,0 +1,128 @@
+.hidden {
+    display: none;
+  }
+  
+.background {
+    background-color: #999292; 
+    padding: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    transition: background-color 0.5s ease;
+}
+form {
+    margin-bottom: 20px;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+/* Style for the button */
+#hideButton {
+    background-color: #a7314b; 
+    color: white; 
+    padding: 15px 32px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+  }  
+#hideButton:hover {
+    background-color: #474445; 
+    transform: scale(1.1); 
+}
+  
+  #hideButton:active {
+    background-color: #13d3ec04; 
+  }
+  
+  
+  #myParagraph {
+    font-size: 18px; 
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
+    display: none; 
+
+  }
+  #myParagraph.show {
+    display: block;
+  }
+
+  
+  .background {
+    background-color: #f0f0f0; 
+    padding: 10px;
+    border-radius: 5px; 
+  }
+
+  button {
+    background-color: #13c91d; 
+    color: white; 
+    padding: 15px 32px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+button:hover {
+    background-color:burlywood;
+    color: black; 
+    transform: scale(1.1); 
+}
+#welcomeMessage {
+    font-size: 24px;
+    color: #e422b3;
+    margin-bottom: 20px;
+}
+
+
+.beautified {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e6eef1; /* Blue color */
+    letter-spacing: 1px; 
+    background-color: #474445; 
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+/*shapes -----------*/
+.shape {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto;
+    display: none;
+}
+.circle {
+    border-radius: 50%;
+    background-color: blue;
+}
+.square {
+    border-radius: 0;
+    background-color: rgb(231, 231, 16);
+}
+.triangle {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green;
+}
+.rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: red;
+}
+
