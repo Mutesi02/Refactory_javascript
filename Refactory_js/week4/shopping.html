@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart System</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 80%; margin: auto; }
+        .products, .cart { display: flex; flex-wrap: wrap; justify-content: center; }
+        .product, .cart-item { border: 1px solid #ccc; margin: 10px; padding: 10px; border-radius: 5px; }
+        img { width: 100px; height: 100px; }
+        button { cursor: pointer; background: blue; color: white; border: none; padding: 5px 10px; }
+        .checkout { margin-top: 20px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Catalog</h1>
+        <div class="products">
+            <div class="product" data-id="1" data-name="Laptop" data-price="800">
+                <img src="https://via.placeholder.com/100" alt="Laptop">
+                <p>Laptop - $800</p>
+                <button onclick="addToCart(1, 'Laptop', 800)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Phone" data-price="500">
+                <img src="https://via.placeholder.com/100" alt="Phone">
+                <p>Phone - $500</p>
+                <button onclick="addToCart(2, 'Phone', 500)">Add to Cart</button>
+            </div>
+        </div>
+
+        <h2>Shopping Cart</h2>
+        <div class="cart"></div>
+        <h3>Total: $<span id="total">0</span></h3>
+        <button onclick="showCheckout()">Proceed to Checkout</button>
+    </div>
+
+    <div class="checkout">
+        <h2>Checkout</h2>
+        <form onsubmit="return validateCheckout()">
+            <label>Name: <input type="text" id="name"></label><br>
+            <label>Address: <input type="text" id="address"></label><br>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(id, name, price) {
+            let existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartContainer = document.querySelector(".cart");
+            cartContainer.innerHTML = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <p>${item.name} - $${item.price} x ${item.quantity}</p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    </div>
+                `;
+            });
+            document.getElementById("total").textContent = total;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function showCheckout() {
+            document.querySelector(".checkout").style.display = "block";
+        }
+
+        function validateCheckout() {
+            let name = document.getElementById("name").value;
+            let address = document.getElementById("address").value;
+            if (name.trim() === "" || address.trim() === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            alert("Order placed successfully!");
+            return true;
+        }
+    </script>
+</body>
+</html>

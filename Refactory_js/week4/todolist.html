@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }
+        .container { width: 50%; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        input, select { width: 70%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 10px; background: #e3e3e3; margin: 5px 0; display: flex; justify-content: space-between; align-items: center; border-radius: 5px; }
+        .completed { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <input type="date" id="taskDate">
+        <select id="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskDate = document.getElementById("taskDate").value;
+            const taskPriority = document.getElementById("taskPriority").value;
+            if (taskInput.value.trim() === "") {
+                alert("Please enter a task");
+                return;
+            }
+            tasks.push({ text: taskInput.value, date: taskDate, priority: taskPriority, completed: false });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            taskInput.value = "";
+            document.getElementById("taskDate").value = "";
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                taskList.innerHTML += `
+                    <li class="${task.completed ? 'completed' : ''}">
+                        <span onclick="toggleTask(${index})">${task.text} (Due: ${task.date || 'No date'}) - Priority: ${task.priority}</span>
+                        <button onclick="deleteTask(${index})">Delete</button>
+                    </li>
+                `;
+            });
+        }
+
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        renderTasks();
+    </script>
+</body>
+</html>

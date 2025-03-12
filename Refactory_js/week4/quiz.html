@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+    #quiz-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #question-text {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .option-button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .option-button:hover {
+      background-color: #45a049;
+    }
+    #feedback-container, #score-container {
+      display: none;
+      text-align: center;
+    }
+    #score-container {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #next-button, #retry-button {
+      padding: 10px 20px;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #next-button:hover, #retry-button:hover {
+      background-color: #007B9E;
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz-container">
+    <div id="question-container">
+      <p id="question-text"></p>
+      <div id="options-container"></div>
+      <button id="submit-button" class="option-button" onclick="handleAnswerSubmission()">Submit</button>
+    </div>
+    <div id="feedback-container">
+      <p id="feedback-text"></p>
+      <button id="next-button" onclick="nextQuestion()">Next Question</button>
+    </div>
+    <div id="score-container">
+      <p id="score-text"></p>
+      <button id="retry-button" onclick="retryQuiz()">Retry Quiz</button>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Rome"],
+        answer: "Paris",
+        type: "multiple-choice",
+      },
+      {
+        question: "Is the Earth round?",
+        options: ["True", "False"],
+        answer: "True",
+        type: "true/false",
+      },
+      {
+        question: "What is 5 + 3?",
+        options: ["5", "8", "10", "7"],
+        answer: "8",
+        type: "multiple-choice",
+      },
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let timeLeft = 30;
+    let timer;
+
+    function startTimer() {
+      timer = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+        } else {
+          clearInterval(timer);
+          handleAnswerSubmission();
+        }
+      }, 1000);
+    }
+
+    function displayQuestion() {
+      const questionData = quizData[currentQuestionIndex];
+      document.getElementById("question-text").innerText = questionData.question;
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.innerHTML = ''; // Clear previous options
+
+      questionData.options.forEach(option => {
+        const optionElement = document.createElement("button");
+        optionElement.innerText = option;
+        optionElement.classList.add("option-button");
+        optionElement.onclick = () => handleAnswerSelection(option);
+        optionsContainer.appendChild(optionElement);
+      });
+
+      document.getElementById("feedback-container").style.display = "none";
+      startTimer();
+    }
+
+    function handleAnswerSelection(selectedAnswer) {
+      const correctAnswer = quizData[currentQuestionIndex].answer;
+      if (selectedAnswer === correctAnswer) {
+        score++;
+        showFeedback(true);
+      } else {
+        showFeedback(false);
+      }
+    }
+
+    function showFeedback(isCorrect) {
+      const feedbackText = isCorrect ? "Correct!" : "Incorrect. The correct answer was: " + quizData[currentQuestionIndex].answer;
+      document.getElementById("feedback-text").innerText = feedbackText;
+      document.getElementById("feedback-container").style.display = "block";
+    }
+
+    function handleAnswerSubmission() {
+      clearInterval(timer);
+      showFeedback(false);
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        displayQuestion();
+        document.getElementById("feedback-container").style.display = "none";
+        timeLeft = 30; // Reset the timer for the next question
+      } else {
+        showFinalScore();
+      }
+    }
+
+    function showFinalScore() {
+      document.getElementById("score-text").innerText = `Your score is: ${score} / ${quizData.length}`;
+      document.getElementById("score-container").style.display = "block";
+    }
+
+    function retryQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      document.getElementById("score-container").style.display = "none";
+      displayQuestion();
+    }
+
+    // Initialize the quiz
+    displayQuestion();
+  </script>
+</body>
+</html>
