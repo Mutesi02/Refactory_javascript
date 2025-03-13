@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+</head>
+<body>
+    <h1>😂 Random Joke</h1>
+    <p id="joke">Click the button to get a joke!</p>
+    <button onclick="getJoke()">Get Joke</button>
+
+    <script>
+        function getJoke() {
+            fetch("https://official-joke-api.appspot.com/random_joke")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("joke").textContent = data.setup + " - " + data.punchline;
+                })
+                .catch(error => console.log("❌ Error:", error));
+        }
+    </script>
+    <script>
+        function getStock() {
+            fetch("https://api.example.com/kgl-stock")
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var stockList = document.getElementById("stockList");
+                    stockList.innerHTML = "";
+                    data.forEach(function(item) {
+                        var li = document.createElement("li");
+                        li.textContent = item.name + ": " + item.stock + "kg available";
+                        stockList.appendChild(li);
+                    });
+                })
+                .catch(function(error) {
+                    console.log("❌ Error fetching stock:", error);
+                });
+        }
+    </script>
+</body>
+</html>

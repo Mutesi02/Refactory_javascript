@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "name": "Alice Johnson",
+        "position": "Software Engineer",
+        "department": "IT",
+        "email": "alice.johnson@example.com",
+        "salary": 75000
+    },
+    {
+        "id": 2,
+        "name": "Bob Smith",
+        "position": "Project Manager",
+        "department": "Operations",
+        "email": "bob.smith@example.com",
+        "salary": 85000
+    },
+    {
+        "id": 3,
+        "name": "Charlie Davis",
+        "position": "HR Specialist",
+        "department": "Human Resources",
+        "email": "charlie.davis@example.com",
+        "salary": 62000
+    },
+    {
+        "id": 4,
+        "name": "Dana White",
+        "position": "Marketing Coordinator",
+        "department": "Marketing",
+        "email": "dana.white@example.com",
+        "salary": 58000
+    },
+    {
+        "id": 5,
+        "name": "Evan Brown",
+        "position": "Financial Analyst",
+        "department": "Finance",
+        "email": "evan.brown@example.com",
+        "salary": 72000
+    }
+]
+
+
+
+/*xml*/
+<employees>
+    <employee>
+        <id>1</id>
+        <name>Alice Johnson</name>
+        <position>Software Engineer</position>
+        <department>IT</department>
+        <email>alice.johnson@example.com</email>
+        <salary>75000</salary>
+    </employee>
+    <employee>
+        <id>2</id>
+        <name>Bob Smith</name>
+        <position>Project Manager</position>
+        <department>Operations</department>
+        <email>bob.smith@example.com</email>
+        <salary>85000</salary>
+    </employee>
+</employees>
+employees:
+  - id: 1
+    name: Alice Johnson
+    position: Software Engineer
+    department: IT
+    email: alice.johnson@example.com
+    salary: 75000
+  - id: 2
+    name: Bob Smith
+    position: Project Manager
+    department: Operations
+    email: bob.smith@example.com
+    salary: 85000
+    employees:
+  - id: 1
+    name: Alice Johnson
+    position: Software Engineer
+    department: IT
+    email: alice.johnson@example.com
+    salary: 75000
+  - id: 2
+    name: Bob Smith
+    position: Project Manager
+    department: Operations
+    email: bob.smith@example.com
+    salary: 85000
+     id,name,position,department,email,salary
+1,Alice Johnson,Software Engineer,IT,alice.johnson@example.com,75000
+2,Bob Smith,Project Manager,Operations,bob.smith@example.com,85000
