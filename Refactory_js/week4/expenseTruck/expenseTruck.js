@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .container { width: 80%; margin: auto; }
-        input, select, button { margin: 5px; padding: 5px; }
-        .expenses { margin-top: 20px; }
-        .expense-item { border: 1px solid #ccc; padding: 10px; margin: 5px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Expense Tracker</h1>
-        <input type="number" id="amount" placeholder="Amount">
-        <input type="text" id="description" placeholder="Description">
-        <select id="category">
-            <option value="Food">Food</option>
-            <option value="Transport">Transport</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Other">Other</option>
-        </select>
-        <button onclick="addExpense()">Add Expense</button>
 
-        <h2>Total: $<span id="total">0</span></h2>
-        <h3>Expenses by Category</h3>
-        <div id="category-summary"></div>
-
-        <h3>Expense List</h3>
-        <div class="expenses" id="expense-list"></div>
-    </div>
-
-    <script>
         let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
         function addExpense() {
@@ -78,6 +43,3 @@
         }
 
         updateUI();
-    </script>
-</body>
-</html>

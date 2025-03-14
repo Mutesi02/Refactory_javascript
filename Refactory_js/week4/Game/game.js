@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obstacle Avoidance Game</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        canvas { background: #eee; display: block; margin: auto; border: 2px solid #333; }
-    </style>
-</head>
-<body>
-    <h1>Obstacle Avoidance Game</h1>
-    <p>Use Left & Right Arrow Keys to Move</p>
-    <canvas id="gameCanvas" width="400" height="500"></canvas>
-    <script>
+
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
         
@@ -69,6 +54,3 @@
         }
         
         updateGame();
-    </script>
-</body>
-</html>
