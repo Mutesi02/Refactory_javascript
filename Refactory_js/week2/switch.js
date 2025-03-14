@@ -3,21 +3,21 @@ Abel-chocolate
 cain-braed
 Joshua -sweets
 person b doesnot answer phone calls*/
-// let contact = +prompt("Enter your BF contact");
-// switch(contact){
-//     case 1:
-//         alert("chocolate")
-//     break;
-//     case 2:
-//        alert("sweets")
-//      break;
-//     case 3:
-//         alert("Bread")
-//     break;
-//     default:
-//         alert("not available")
-//     break;
-// }
+let contact = +prompt("Enter your BF contact");
+switch(contact){
+    case 1:
+        alert("chocolate")
+    break;
+    case 2:
+       alert("sweets")
+     break;
+    case 3:
+        alert("Bread")
+    break;
+    default:
+        alert("not available")
+    break;
+}
 
 
 // if (contact === 1){
